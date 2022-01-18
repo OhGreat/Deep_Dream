@@ -1,8 +1,10 @@
 import numpy as np
+import tensorflow as tf
 import pathlib
 import os
 import PIL
 import matplotlib.pyplot as plt
+import IPython.display as display
 
 
 # Check for corrupted files in directory
@@ -27,7 +29,7 @@ def get_corrupted_files(data_dir, verbose=0, ret_split=0):
             filename.endswith('.bmp') or filename.endswith('.JPG') or 
             filename.endswith('.jpeg')):
         
-            curr_img_path = data_dir.name +"/"+filename
+            curr_img_path = str(data_dir.resolve()) +"/"+filename
             # try to open the image
             try:
                 img = PIL.Image.open(curr_img_path) # open the image file
@@ -40,6 +42,7 @@ def get_corrupted_files(data_dir, verbose=0, ret_split=0):
                 bad_file_urls.append(curr_img_path)
                 count_error += 1
                 if verbose > 1:
+                    print('error:', e)
                     print('Bad file:', filename) # print out the names of corrupt files
                 
 
@@ -80,12 +83,18 @@ def normalize_values(np_img):
     x_norm = (np_img - x_min) / (x_max - x_min)
     return x_norm
 
+def deprocess(img):
+  """
+  Deprocess an image preprocessed with InceptionV3 model
+  """
+  img = 255*(img + 1.0)/2.0
+  return tf.cast(img, tf.uint8)
 
-def show_np_img(np_img, use_pil=False, save_img=False):
+
+def show_np_img(np_img, use_pil=False):
     
     if use_pil:
-        im = PIL.Image.fromarray(np_img)
-        im.show()
+         display.display(PIL.Image.fromarray(np.array(np_img)))
     else:
         plt.imshow(np_img)
 
