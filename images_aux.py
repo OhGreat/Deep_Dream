@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 import pathlib
 import os
 import PIL
@@ -93,7 +94,7 @@ def deprocess(img):
 def show_np_img(np_img, use_pil=False):
     
     if use_pil:
-         display.display(PIL.Image.fromarray(np_img))
+         display.display(PIL.Image.fromarray(np.array(np_img)))
     else:
         plt.imshow(np_img)
 
