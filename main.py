@@ -25,10 +25,10 @@ def main():
                         help="Sets the maximum size of the image",
                         default=1024, type=int)
     parser.add_argument("-img_out", action="store", dest="img_out", type=str,
-                        default="output")     
+                        default="output")
     parser.add_argument("-ts", action="store", dest="tile_size",
                         help="Sets the size of the tile for the random roll",
-                        default=512, type=int)          
+                        default=512, type=int)  
     parser.add_argument("-ss", action="store", dest="step_size", 
                         help="Sets the step_size per iteration",
                         default=0.01, type=float)
