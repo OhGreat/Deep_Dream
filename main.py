@@ -1,13 +1,9 @@
-import sys
-import numpy as np
 import argparse
-import pathlib
 import tensorflow as tf
-import IPython.display as display
 from classes.TiledGradients import *
 from images_aux import *
 
-def get_usable_layers(self):
+def get_usable_layers(model):
         """
         Returns a list of all the usuable layers that we can feed as outputs for our model, 
         together with the list of names
@@ -15,7 +11,7 @@ def get_usable_layers(self):
         usable_layers = []
         layer_names = []
 
-        for layer in self.layers:
+        for layer in model.layers:
             if isinstance(layer, tf.keras.layers.Concatenate):
                 usable_layers.append(layer)
                 layer_names.append(layer.name)
