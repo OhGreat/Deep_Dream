@@ -3,7 +3,7 @@ python main.py \
 -img_max_dim 1024 \
 -ts 512 \
 -ss 0.01 \
--or -3 2 \
+-or -5 2 \
 -os 80 \
 -osc 1.3 \
 -m inceptionResNet
