@@ -18,9 +18,6 @@ def get_usable_layers(model):
         return usable_layers, layer_names
 
 def main():
-    """ to add in parser:
-            - img_to_np line 69            
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument("-img", action="store", dest="img", type=str,
                         default="input/elephant.jpg")
@@ -45,6 +42,9 @@ def main():
     parser.add_argument("-m", action="store", dest="model", 
                         help="Set the model to use",
                         default="inceptionResNet", type=str)
+    parser.add_argument("-ml", action="store", dest="model_layers", 
+                        nargs="+", help="Set the range of layers to consider",
+                        default=None, type=int)
     args = parser.parse_args()
     print("arguments passed:",args)
 
@@ -62,11 +62,18 @@ def main():
         print('Please select a valid model.')
         exit()
     
-    # Pick model layers
+    # Pick model usable layers
     layers, _ = get_usable_layers(base_model)
     layer_outputs = [layer.output for layer in layers]
-    print(f"Choose starting and ending layer indexes, between 0 and {len(layer_outputs)}:" )
-    start_idx,end_idx=map(int,input().split())
+    # Choose layers if they have not been selected
+    # or if they have been selected incorrectly
+    if  (args.model_layers == None) or (
+        args.model_layers[0] > args.model_layers[1]) or (
+        args.model_layers[1] >= len(layer_outputs)):
+        print(f"Please choose starting and ending layer indexes, between 0 and {len(layer_outputs)}:" )
+        start_idx,end_idx=map(int,input().split())
+    # Else use the existing parameters
+    else: start_idx, end_idx = args.model_layers[0], args.model_layers[1]
     print(f"Chosen layers: {start_idx} - {end_idx}")
     layer_outputs = layer_outputs[start_idx:end_idx]
 
@@ -75,8 +82,11 @@ def main():
     tiled_gradients = TiledGradients(dream_model)
         
     # Run deep dream algorithm
-    img = tiled_gradients.run_deep_dream_with_octaves(img=img, tile_size=args.tile_size, steps_per_octave=args.steps_per_octave, step_size=args.step_size, 
-                                octaves=range(args.octaves_range[0], args.octaves_range[1]), octave_scale=args.octave_scale)
+    img = tiled_gradients.run_deep_dream_with_octaves(  img=img, tile_size=args.tile_size, 
+                                                        steps_per_octave=args.steps_per_octave, 
+                                                        step_size=args.step_size, 
+                                                        octaves=range(args.octaves_range[0], args.octaves_range[1]), 
+                                                        octave_scale=args.octave_scale)
 
     # Deprocess and save final image
     img = tf.image.resize(img, original_img.shape[:2])
