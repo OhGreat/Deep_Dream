@@ -67,11 +67,6 @@ class TiledGradients(tf.Module):
     def run_deep_dream_with_octaves(self, img, steps_per_octave=20, step_size=0.01, 
                                 octaves=range(-3,3), octave_scale=1.2):
         base_shape = tf.shape(img)
-        print("base shape:", base_shape) # ok
-        #img = tf.keras.utils.img_to_array(img)
-        #img = tf.keras.applications.inception_v3.preprocess_input(img)
-        img = tf.keras.applications.inception_resnet_v2.preprocess_input(img)
-
         initial_shape = img.shape[:-1]
         img = tf.image.resize(img, initial_shape)
         for octave in octaves:

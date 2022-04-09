@@ -45,14 +45,19 @@ def main():
                         default=1.2, type=float)
     parser.add_argument("-m", action="store", dest="model", 
                         help="Set the model to use",
-                        default="inception_resnet", type=str)
+                        default="inceptionResNet", type=str)
     args = parser.parse_args()
     print("arguments passed:",args)
 
-    # Choose model
+    # Preprocess input
+    original_img = img_to_np(args.img,max_dim=256)
+    print("input img shape:",original_img.shape)
+    # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
+        img = tf.keras.applications.inception_v3.preprocess_input(original_img)
         base_model = tf.keras.applications.InceptionV3(include_top=False, weights='imagenet')
     elif args.model == 'inceptionResNet':
+        img = tf.keras.applications.inception_resnet_v2.preprocess_input(original_img)
         base_model = tf.keras.applications.InceptionResNetV2(include_top=False, weights='imagenet')
     else:
         print('Please select a valid model.')
@@ -61,15 +66,13 @@ def main():
     # Pick model layers
     layers, names = get_usable_layers(base_model)
     layer_outputs = [layer.output for layer in layers]
-    layer_outputs = layer_outputs[25:30]
+    layer_outputs = layer_outputs[5:10]
 
     # Create model from selected layers
     dream_model = tf.keras.Model(inputs=base_model.input, outputs=layer_outputs)
     tiled_gradients = TiledGradients(dream_model)
-
-    # Preprocess input
-    original_img = img_to_np(args.img,max_dim=256)
-    print("input img shape:",original_img.shape)
+        
+    # Run deep dream algorithm
     img = tiled_gradients.run_deep_dream_with_octaves(img=original_img, steps_per_octave=80, step_size=0.01, 
                                 octaves=range(1,3), octave_scale=1.2)
 
