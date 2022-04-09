@@ -4,6 +4,6 @@ python main.py \
 -ts 512 \
 -ss 0.01 \
 -or -5 2 \
--os 80 \
+-os 40 \
 -osc 1.3 \
 -m inceptionResNet
