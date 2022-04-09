@@ -24,6 +24,8 @@ def main():
     parser.add_argument("-img_max_dim", action="store", dest="img_max_dim",
                         help="Sets the maximum size of the image",
                         default=1024, type=int)
+    parser.add_argument("-img_out", action="store", dest="img_out", type=str,
+                        default="output")     
     parser.add_argument("-ts", action="store", dest="tile_size",
                         help="Sets the size of the tile for the random roll",
                         default=512, type=int)          
@@ -91,7 +93,7 @@ def main():
     # Deprocess and save final image
     img = tf.image.resize(img, original_img.shape[:2])
     img = tf.image.convert_image_dtype(img/255, dtype=tf.uint8)
-    save_image(img, f"output/output.jpeg")
+    save_image(img, f"output/{args.img_out}.jpeg")
 
 if __name__ == "__main__":
     main()
