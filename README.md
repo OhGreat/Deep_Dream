@@ -10,6 +10,7 @@ Deep Dream implementation and experimentation in tensorflow. This is still a wor
 </ul>
 
 ## Usage
+#TODO: explain args
 To run an experiment edit the bash script *experiment.sh* in the main directory and run it.
 
 ## Future Work
