@@ -19,20 +19,23 @@ def get_usable_layers(model):
 
 def main():
     """ to add in parser:
-            - usable layers line 60
-            - img_to_np line 69
-            - random_roll size line 70
-            
+            - img_to_np line 69            
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-img", action="store", dest="img", type=str,
                         default="input/elephant.jpg")
+    parser.add_argument("-img_max_dim", action="store", dest="img_max_dim",
+                        help="Sets the maximum size of the image",
+                        default=1024, type=int)
+    parser.add_argument("-ts", action="store", dest="tile_size",
+                        help="Sets the size of the tile for the random roll",
+                        default=512, type=int)          
     parser.add_argument("-ss", action="store", dest="step_size", 
                         help="Sets the step_size per iteration",
                         default=0.01, type=float)
     parser.add_argument("-or", action="store", dest="octaves_range", 
                         nargs="+", help="Set octave range",
-                        default=[-2,4], type=float)
+                        default=[-2,4], type=int)
     parser.add_argument("-os", action="store", dest="steps_per_octave",
                         help="Sets the number of steps per octave",
                         default=100, type=int)
@@ -46,7 +49,7 @@ def main():
     print("arguments passed:",args)
 
     # Preprocess input image
-    original_img = img_to_np(args.img,max_dim=1024)
+    original_img = img_to_np(args.img,max_dim=args.img_max_dim)
     print("input image shape:",original_img.shape)
     # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
@@ -60,7 +63,7 @@ def main():
         exit()
     
     # Pick model layers
-    layers, names = get_usable_layers(base_model)
+    layers, _ = get_usable_layers(base_model)
     layer_outputs = [layer.output for layer in layers]
     print(f"Choose starting and ending layer indexes, between 0 and {len(layer_outputs)}:" )
     start_idx,end_idx=map(int,input().split())
@@ -72,13 +75,12 @@ def main():
     tiled_gradients = TiledGradients(dream_model)
         
     # Run deep dream algorithm
-    img = tiled_gradients.run_deep_dream_with_octaves(img=img, steps_per_octave=args.steps_per_octave, step_size=args.step_size, 
-                                octaves=range(1,3), octave_scale=args.octave_scale)
+    img = tiled_gradients.run_deep_dream_with_octaves(img=img, tile_size=args.tile_size, steps_per_octave=args.steps_per_octave, step_size=args.step_size, 
+                                octaves=range(args.octaves_range[0], args.octaves_range[1]), octave_scale=args.octave_scale)
 
-    #display.clear_output(wait=True)
+    # Deprocess and save final image
     img = tf.image.resize(img, original_img.shape[:2])
     img = tf.image.convert_image_dtype(img/255, dtype=tf.uint8)
-
     save_image(img, f"output/output.jpeg")
 
 if __name__ == "__main__":

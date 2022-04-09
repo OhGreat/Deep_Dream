@@ -62,7 +62,7 @@ class TiledGradients(tf.Module):
 
         return  tf.reduce_sum(losses)
 
-    def run_deep_dream_with_octaves(self, img, steps_per_octave=20, step_size=0.01, 
+    def run_deep_dream_with_octaves(self, img, tile_size=512, steps_per_octave=20, step_size=0.01, 
                                 octaves=range(-3,3), octave_scale=1.2):
         base_shape = tf.shape(img)
         initial_shape = img.shape[:-1]
@@ -74,14 +74,9 @@ class TiledGradients(tf.Module):
             img = tf.image.resize(img, new_size)
 
             for step in range(steps_per_octave):
-                gradients = self(img, new_size)
+                gradients = self(img, new_size, tile_size)
                 img = img + gradients*step_size
                 img = tf.clip_by_value(img, -1, 1)
-
-                """if step % 10 == 0:
-                    display.clear_output(wait=True)
-                    show_np_img(deprocess(img), use_pil=True)
-                    print ("Octave {}, Step {}".format(octave, step))"""
             
         result = deprocess(img)
         return result
