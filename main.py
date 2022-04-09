@@ -30,16 +30,16 @@ def main():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-img", action="store", dest="img", type=str,
-                        default="image_generation_script/2022_01_23_17_11_23_0.png")
+                        default="input/elephant.jpg")
     parser.add_argument("-ss", action="store", dest="step_size", 
                         help="Sets the step_size per iteration",
                         default=0.01, type=float)
     parser.add_argument("-or", action="store", dest="octaves_range", 
                         nargs="+", help="Set octave range",
-                        default=[-1,4], type=float)
+                        default=[-2,4], type=float)
     parser.add_argument("-os", action="store", dest="steps_per_octave",
                         help="Sets the number of steps per octave",
-                        default=80, type=int)
+                        default=100, type=int)
     parser.add_argument("-osc", action="store", dest="octave_scale", 
                         help="Set scaling for each octave step",
                         default=1.2, type=float)
@@ -49,9 +49,9 @@ def main():
     args = parser.parse_args()
     print("arguments passed:",args)
 
-    # Preprocess input
-    original_img = img_to_np(args.img,max_dim=256)
-    print("input img shape:",original_img.shape)
+    # Preprocess input image
+    original_img = img_to_np(args.img,max_dim=1024)
+    print("input image shape:",original_img.shape)
     # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
         img = tf.keras.applications.inception_v3.preprocess_input(original_img)
@@ -66,20 +66,24 @@ def main():
     # Pick model layers
     layers, names = get_usable_layers(base_model)
     layer_outputs = [layer.output for layer in layers]
-    layer_outputs = layer_outputs[5:10]
+    print(f"Choose starting and ending layer indexes, between 0 and {len(layer_outputs)}:" )
+    start_idx,end_idx=map(int,input().split())
+    print(f"Chosen layers: {start_idx} - {end_idx}")
+    layer_outputs = layer_outputs[start_idx:end_idx]
 
     # Create model from selected layers
     dream_model = tf.keras.Model(inputs=base_model.input, outputs=layer_outputs)
     tiled_gradients = TiledGradients(dream_model)
         
     # Run deep dream algorithm
-    img = tiled_gradients.run_deep_dream_with_octaves(img=original_img, steps_per_octave=80, step_size=0.01, 
-                                octaves=range(1,3), octave_scale=1.2)
+    img = tiled_gradients.run_deep_dream_with_octaves(img=img, steps_per_octave=args.steps_per_octave, step_size=args.step_size, 
+                                octaves=range(1,3), octave_scale=args.octave_scale)
 
-    display.clear_output(wait=True)
-    #img = tf.image.resize(img, base_shape)
-    #img = tf.image.convert_image_dtype(img/255.0, dtype=tf.uint8)
-    show_np_img(img,use_pil=True)
+    #display.clear_output(wait=True)
+    img = tf.image.resize(img, original_img.shape[:2])
+    img = tf.image.convert_image_dtype(img/255, dtype=tf.uint8)
+
+    save_image(img, f"output/output.jpeg")
 
 if __name__ == "__main__":
     main()

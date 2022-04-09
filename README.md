@@ -1,10 +1,10 @@
 
-# deep_dream
+## Deep dream implementation with Tensorflow networks 
 Deep Dream implementation and experimentation in tensorflow.
 
 
 
-References:
+## References:
 
 - https://www.tensorflow.org/tutorials/generative/deepdream
 

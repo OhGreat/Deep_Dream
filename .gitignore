@@ -1,4 +1,4 @@
 example_images/
 created_images/
-
+.ipynb_checkpoints
 __pycache__

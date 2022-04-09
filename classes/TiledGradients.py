@@ -36,8 +36,6 @@ class TiledGradients(tf.Module):
                     # Extract a tile out of the image.
                     img_tile = img_rolled[y:y+tile_size, x:x+tile_size]
                     loss = self.calc_loss(img_tile)
-                    print("loss:",loss)
-                    print("img rolled:", img_rolled.shape)
 
                 # Update the image gradients for this tile.
                 gradients = gradients + tape.gradient(loss, img_rolled)
@@ -80,10 +78,10 @@ class TiledGradients(tf.Module):
                 img = img + gradients*step_size
                 img = tf.clip_by_value(img, -1, 1)
 
-                if step % 10 == 0:
+                """if step % 10 == 0:
                     display.clear_output(wait=True)
                     show_np_img(deprocess(img), use_pil=True)
-                    print ("Octave {}, Step {}".format(octave, step))
+                    print ("Octave {}, Step {}".format(octave, step))"""
             
         result = deprocess(img)
         return result
