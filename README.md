@@ -11,20 +11,30 @@ This work is mainly based on the tiled implementation of the Deep Dream Tensorfl
 <ul>
   <li>Python 3</li>
   <li>numpy >=1.19</li>
-  <li>Tensorflow and CUDA</li>
+  <li>Tensorflow</li>
+  <li>CUDA is recommended</li>
 </ul>
 
 ## Usage
-#TODO: explain args<br/>
-To run an experiment edit the bash script *experiment.sh* in the main directory and run it.
+
+The main file to run experiments is the ***deep_dream.py*** file in the main directiry. An accurate description of all the arguments is available below.
+
+The ***deep_dream.sh*** script in the main directory can be used to set parameters and run experiments directly from a bash terminal.
+
+### Tunable parameters:
+- ***-img***: Path of the input image to use for the experiment. It can be set to *'random_noise'* (set as default) in order to create a random normal distributed noise to pass to the deep dream model.
+- ***-img_out***: Optional parameter representing the name for the output image. Default is *'output'*.
+
 
 ## Future Work
-- Add more args for more detailed control<br/>
-- Create bash script to run experiemnts.
+- ~~Add more args for more detailed control<br/>~~
+- ~~Create bash script to run experiemnts.~~
 
 ## References:
 
 - https://www.tensorflow.org/tutorials/generative/deepdream
+
+- https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html
 
 - https://hackernoon.com/deep-dream-with-tensorflow-a-practical-guide-to-build-your-first-deep-dream-experience-f91df601f479
 
