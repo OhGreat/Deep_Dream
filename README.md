@@ -1,5 +1,5 @@
 
-# Deep dream implementation with Tensorflow networks 
+# Deep dream implementation with Tensorflow
 
 <details>
   <summary>Table of Contents</summary>
