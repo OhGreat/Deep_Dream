@@ -20,7 +20,7 @@ def get_usable_layers(model):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-img", action="store", dest="img", type=str,
-                        default="input/elephant.jpg")
+                        default="random_noise")
     parser.add_argument("-img_max_dim", action="store", dest="img_max_dim",
                         help="Sets the maximum size of the image",
                         default=1024, type=int)
@@ -51,7 +51,9 @@ def main():
     print("arguments passed:",args)
 
     # Preprocess input image
-    original_img = img_to_np(args.img,max_dim=args.img_max_dim)
+    if args.img == 'random_noise':
+        original_img = np.random.uniform(size=(args.img_max_dim,args.img_max_dim,3))
+    else: original_img = img_to_np(args.img,max_dim=args.img_max_dim)
     print("input image shape:",original_img.shape)
     # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
@@ -82,14 +84,13 @@ def main():
     # Create model from selected layers
     dream_model = tf.keras.Model(inputs=base_model.input, outputs=layer_outputs)
     tiled_gradients = TiledGradients(dream_model)
-        
+
     # Run deep dream algorithm
     img = tiled_gradients.run_deep_dream_with_octaves(  img=img, tile_size=args.tile_size, 
                                                         steps_per_octave=args.steps_per_octave, 
                                                         step_size=args.step_size, 
                                                         octaves=range(args.octaves_range[0], args.octaves_range[1]), 
                                                         octave_scale=args.octave_scale)
-
     # Deprocess and save final image
     img = tf.image.resize(img, original_img.shape[:2])
     img = tf.image.convert_image_dtype(img/255, dtype=tf.uint8)
