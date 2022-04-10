@@ -9,6 +9,7 @@
       <ul>
         <li><a href="#examples">Examples</a></li>
         <li><a href="deep_dream_as_art">Is Deep Dream art?</a></li>
+        <li><a href="#about-the-implementation">About the implementation</a></li>
       </ul>
     </li>
     <li><a href="#requirements">Requirements</a></li>
