@@ -2,12 +2,12 @@
 
 python deep_dream.py \
 -img random_noise \
--img_out random_noise_2 \
+-img_out random_noise_3 \
 -img_max_dim 1024 \
--ts 512 \
+-ts 256 \
 -ss 0.01 \
--or -4 4 \
--os 120 \
+-or -4 2 \
+-os 80 \
 -osc 1.2 \
 -m inceptionResNet \
--ml 20 40
+-ml 25 30

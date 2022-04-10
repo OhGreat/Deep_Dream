@@ -3,8 +3,6 @@ import tensorflow as tf
 import os
 import PIL
 import matplotlib.pyplot as plt
-import IPython.display as display
-
 
 # Check for corrupted files in directory
 def get_corrupted_files(data_dir, verbose=0, ret_split=0):
@@ -90,12 +88,8 @@ def deprocess(img):
   return tf.cast(img, tf.uint8)
 
 
-def show_np_img(np_img, use_pil=False):
-    
-    if use_pil:
-         display.display(PIL.Image.fromarray(np.array(np_img)))
-    else:
-        plt.imshow(np_img)
+def show_np_img(np_img):
+    plt.imshow(np_img)
 
 
 def save_image(image, filename, dir=''):
@@ -122,3 +116,17 @@ def random_roll(img, maxroll):
   shift = tf.random.uniform(shape=[2], minval=-maxroll, maxval=maxroll, dtype=tf.int32)
   img_rolled = tf.roll(img, shift=shift, axis=[0,1])
   return shift, img_rolled
+
+def get_usable_layers(model):
+        """
+        Returns a list of all the usuable layers that we can feed as outputs for our model, 
+        together with the list of names
+        """
+        usable_layers = []
+        layer_names = []
+
+        for layer in model.layers:
+            if isinstance(layer, tf.keras.layers.Concatenate):
+                usable_layers.append(layer)
+                layer_names.append(layer.name)
+        return usable_layers, layer_names

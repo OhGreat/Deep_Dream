@@ -1,5 +1,5 @@
 import tensorflow as tf
-from images_aux import *
+from utilities import *
 
 class TiledGradients(tf.Module):
     def __init__(self, model):

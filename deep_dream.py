@@ -1,31 +1,17 @@
 import argparse
 import tensorflow as tf
 from classes.TiledGradients import *
-from images_aux import *
-
-def get_usable_layers(model):
-        """
-        Returns a list of all the usuable layers that we can feed as outputs for our model, 
-        together with the list of names
-        """
-        usable_layers = []
-        layer_names = []
-
-        for layer in model.layers:
-            if isinstance(layer, tf.keras.layers.Concatenate):
-                usable_layers.append(layer)
-                layer_names.append(layer.name)
-        return usable_layers, layer_names
+from utilities import *
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-img", action="store", dest="img", type=str,
                         default="random_noise")
+    parser.add_argument("-img_out", action="store", dest="img_out", type=str,
+                        default="output")
     parser.add_argument("-img_max_dim", action="store", dest="img_max_dim",
                         help="Sets the maximum size of the image",
                         default=1024, type=int)
-    parser.add_argument("-img_out", action="store", dest="img_out", type=str,
-                        default="output")
     parser.add_argument("-ts", action="store", dest="tile_size",
                         help="Sets the size of the tile for the random roll",
                         default=512, type=int)  
@@ -34,7 +20,7 @@ def main():
                         default=0.01, type=float)
     parser.add_argument("-or", action="store", dest="octaves_range", 
                         nargs="+", help="Set octave range",
-                        default=[-2,4], type=int)
+                        default=[-4,2], type=int)
     parser.add_argument("-os", action="store", dest="steps_per_octave",
                         help="Sets the number of steps per octave",
                         default=100, type=int)
@@ -53,7 +39,10 @@ def main():
     # Preprocess input image
     if args.img == 'random_noise':
         original_img = np.random.uniform(size=(args.img_max_dim,args.img_max_dim,3))
-    else: original_img = img_to_np(args.img,max_dim=args.img_max_dim)
+        save_image(original_img*255, f"input/{args.img_out}.jpeg")
+    else: 
+        original_img = img_to_np(args.img,max_dim=args.img_max_dim)
+        save_image(original_img, f"input/{args.img_out}_reshaped.jpeg")
     print("input image shape:",original_img.shape)
     # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
@@ -73,7 +62,7 @@ def main():
     # or if they have been selected incorrectly
     if  (args.model_layers == None) or (
         args.model_layers[0] > args.model_layers[1]) or (
-        args.model_layers[1] >= len(layer_outputs)):
+        args.model_layers[1] > len(layer_outputs)):
         print(f"Please choose starting and ending layer indexes, between 0 and {len(layer_outputs)}:" )
         start_idx,end_idx=map(int,input().split())
     # Else use the existing parameters
