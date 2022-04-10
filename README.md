@@ -1,12 +1,22 @@
 
 # Deep dream implementation with Tensorflow networks 
 ***Work in progress.*** <br/>
+<!-- TABLE OF CONTENTS -->
+## Table of contents
+  <ol>
+    <li><a href="#about">About The Project</a></li>
+    <li><a href="#examples">Examples</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#future-work">Future work</a></li>
+    <li><a href="#references-and-acknowledgements">References & acknowledgement</a></li> 
+  </ol>
+
 
 ## About
 This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. <br/>
 
 ## Examples
-Examples of images processed with deep dream.
 
 **The examples below are generated from a starting input image:**
 
@@ -68,7 +78,7 @@ The ***deep_dream.sh*** script in the main directory can be used to set paramete
 - ~~Add more args for more detailed control<br/>~~
 - ~~Create bash script to run experiemnts.~~
 
-## References:
+## References and acknowledgements:
 
 - https://www.tensorflow.org/tutorials/generative/deepdream
 
