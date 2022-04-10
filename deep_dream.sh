@@ -1,13 +1,13 @@
 #!/bin/bash
 
 python deep_dream.py \
--img random_noise \
--img_out random_noise_3 \
+-img input/input_reshaped/field_reshaped.jpg \
+-img_out field_2 \
 -img_max_dim 1024 \
--ts 512 \
+-ts 600 \
 -ss 0.01 \
--or -4 2 \
--os 100 \
--osc 1.3 \
+-or -3 3 \
+-os 50 \
+-osc 1.25 \
 -m inceptionResNet \
--ml 25 30
+-ml 12 35

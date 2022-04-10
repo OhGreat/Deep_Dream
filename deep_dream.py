@@ -12,6 +12,8 @@ def main():
     parser.add_argument("-img_max_dim", action="store", dest="img_max_dim",
                         help="Sets the maximum size of the image",
                         default=1024, type=int)
+    parser.add_argument('-save_input', action='store_true',
+                        help="Saves the resized input")
     parser.add_argument("-ts", action="store", dest="tile_size",
                         help="Sets the size of the tile for the random roll",
                         default=512, type=int)  
@@ -39,10 +41,12 @@ def main():
     # Preprocess input image
     if args.img == 'random_noise':
         original_img = np.random.uniform(size=(args.img_max_dim,args.img_max_dim,3))
-        save_image(original_img*255, f"input/{args.img_out}.jpeg")
+        if args.save_input:
+            save_image(original_img*255, f"input/input_reshaped/{args.img_out}.jpeg")
     else: 
         original_img = img_to_np(args.img,max_dim=args.img_max_dim)
-        save_image(original_img, f"input/{args.img_out}_reshaped.jpeg")
+        if args.save_input:
+            save_image(original_img, f"input/input_reshaped/{args.img_out}_reshaped.jpeg")
     print("input image shape:",original_img.shape)
     # Choose model and preprocess image accordingly
     if args.model == 'inceptionV3':
