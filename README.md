@@ -1,22 +1,29 @@
 
 # Deep dream implementation with Tensorflow networks 
-***Work in progress.*** <br/>
-<!-- TABLE OF CONTENTS -->
-## Table of contents
+
+<details>
+  <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about">About The Project</a></li>
-    <li><a href="#examples">Examples</a></li>
+    <li>
+      <a href="#about">About The Project</a>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="deep_dream_as_art">Is Deep Dream art?</a></li>
+      </ul>
+    </li>
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#future-work">Future work</a></li>
     <li><a href="#references-and-acknowledgements">References & acknowledgement</a></li> 
   </ol>
-
+ </details>
 
 ## About
-This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. <br/>
+Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. In general, it uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like psychedelic over-processed images.
 
-## Examples
+
+### Examples
+Examples created with Deep Dream. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
 
 **The examples below are generated from a starting input image:**
 
@@ -44,6 +51,34 @@ This work is mainly based on the tiled implementation of the Deep Dream Tensorfl
 <br/><br/>
 
 **The examples below are generated from random noise, allowing the network get <i>'creative'</i> with its representations:**
+- We can observe how the noise gets interpreted as leafs and branches of trees, with some shapes recalling animals and birds.
+
+<div align="center">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/random_noise.jpeg" height="350">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise.jpeg" height="350">
+  <br/>
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/random_noise_2.jpeg" height="350">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise_2.jpeg" height="350">
+</div>
+<br/><br/>
+
+
+<h3 id="deep_dream_as_art"> Is Deep Dream some kind of art?</h3>
+
+*“Google Dream (...) is a tool, not the product, so calling it art would be a little like an artist raising their hand and declaring their paintbrush art because they were so happy with the way they used it lay paint on a canvas.” <p align="right">- Paddy Johnson</p>* 
+
+
+Although Deep Dream cannot exactly be considered art, its applications are intriguing and representative of our brain as explained by Memo Akten in the citation below.
+
+<br/>
+
+*"It might look like Deep Dream is generating say, sparrow’s faces in clouds, but what it is actually doing is generating patterned noise, which our brains try to find meaning in. It creates just enough of a sparrow’s head in a cloud, so that our brains find the rest. Visually, our minds and Deep Dream are doing exactly the same thing. It’s such a perfect mirror. I love that conceptual aspect." <p align="right">- Memo Akten</p>*
+
+
+### About the implementation
+This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Only subtle details of the implementation have been changed. A wrapper has been constructed to choose from various models and run experiments on the algorithm in various configurations.<br/>
+
+
 
 ## Requirements
 <ul>
@@ -91,3 +126,5 @@ The ***deep_dream.sh*** script in the main directory can be used to set paramete
 - https://www.youtube.com/watch?v=BsSmBPmPeYQ&ab_channel=Computerphile
 
 - https://www.ted.com/talks/blaise_aguera_y_arcas_how_computers_are_learning_to_be_creative?language=en#t-898371
+
+- https://www.theguardian.com/artanddesign/2016/mar/28/google-deep-dream-art
