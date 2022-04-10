@@ -42,8 +42,8 @@ Examples created with Deep Dream. It is recommended to open the created images i
 </ul>
 
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/leiden_night.jpg" height="350">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" height="350">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/leiden_night.jpg" height="250">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" height="250">
   <br/>
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/christmas_dinner.jpg" height="400">
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/christmas_dinner.jpeg" height="400">
