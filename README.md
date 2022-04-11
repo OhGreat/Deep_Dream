@@ -1,9 +1,9 @@
 
 # Deep dream implementation using Tensorflow
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="300px" > 
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" width="300">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/snow.jpeg" width="300">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="260px" > 
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" width="260">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/snow.jpeg" width="260">
 </div>
 <br/>
 
