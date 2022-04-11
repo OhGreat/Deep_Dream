@@ -1,7 +1,9 @@
 
 # Deep dream implementation using Tensorflow
 
-**Table of Contents**
+<img align="right" src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="350px"> 
+  
+  **Table of Contents**
   <ol>
     <li>
       <a href="#about">About</a>
@@ -29,7 +31,6 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 
 - These examples were created with lower network layers and smaller octave range in order to create more subtle *dreamifications*, preserving the shapes and structures of the original image.
 
-
  
 <div align="center">
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/lighthouse_reshaped.jpeg" height="400">
@@ -40,7 +41,7 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 </div>
 <br/><br/>
 <ul>
-  <li> These examples on the other hand, are created with deeper layers and more steps per octave. In general, we can observe that the images get a deeper modification, with new structures appearing in the image.
+  <li> The following examples on the other hand, were created with deeper layers and more steps per octave. In general, we can observe that the images got a deeper modification, with new shapes and structures appearing in the image.
   </li>
 </ul>
 
@@ -59,7 +60,7 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 
 <br/>
 <div align="center">
-  Example noise passed to the model:
+  Example input noise:
 </div>
 <div align="center">
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/random_noise.jpeg" width="200"> 
