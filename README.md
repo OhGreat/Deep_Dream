@@ -25,7 +25,7 @@
 
 ## About
 Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.<br/>
-This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>.  subtle details of the implementation have been changed. A wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
+This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Subtle details of the implementation have been changed and it is currently under work. In addition, a wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
 
 
 <h3 id="examples"> Examples & Observations</h3>
