@@ -1,31 +1,36 @@
 
 # Deep dream implementation using Tensorflow
+<div align="center">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="300px" > 
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" width="300">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/snow.jpeg" width="300">
+</div>
+<br/>
 
-<img align="right" src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="350px"> 
-  
-  **Table of Contents**
-  <ol>
-    <li>
-      <a href="#about">About</a>
-      <ul>
-        <li><a href="#examples">Examples</a></li>
-        <li><a href="#deep_dream_as_art">Is Deep Dream considered art?</a></li>
-      </ul>
-    </li>
-    <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#future-work">Future work</a></li>
-    <li><a href="#references-and-acknowledgements">References & acknowledgement</a></li> 
-  </ol>
-
+**Table of Contents**
+<ol align="left">
+  <li>
+    <a href="#about">About</a>
+    <ul>
+      <li><a href="#examples">Examples & Observations</a></li>
+      <li><a href="#deep_dream_as_art">Is Deep Dream considered art?</a></li>
+    </ul>
+  </li>
+  <li><a href="#prerequisites">Prerequisites</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#future-work">Future work</a></li>
+  <li><a href="#references-and-acknowledgements">References & acknowledgement</a></li> 
+</ol>
+<br/>
 
 ## About
-Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. In general, it uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.<br/>
+Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.<br/>
 This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>.  subtle details of the implementation have been changed. A wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
 
 
-### Examples
+<h3 id="examples"> Examples & Observations</h3>
 Collection of images created with Deep Dream. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
+<br/><br/>
 
 **The examples below are generated from a starting input image:**
 
@@ -73,7 +78,7 @@ Collection of images created with Deep Dream. It is recommended to open the crea
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise.jpeg" width="350">
   <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise_2.jpeg" width="350">
 </div>
-
+<br/>
 
 <h3 id="deep_dream_as_art"> Is Deep Dream considered art?</h3>
 
@@ -81,11 +86,10 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 
 
 Although Deep Dream cannot exactly be considered art, its applications are intriguing and representative of our brain as explained by Memo Akten in the citation below.
-
 <br/>
 
 *"It might look like Deep Dream is generating say, sparrow’s faces in clouds, but what it is actually doing is generating patterned noise, which our brains try to find meaning in. It creates just enough of a sparrow’s head in a cloud, so that our brains find the rest. Visually, our minds and Deep Dream are doing exactly the same thing. It’s such a perfect mirror. I love that conceptual aspect." <p align="right">- Memo Akten</p>*
-
+<br/>
 
 ## Prerequisites
 
@@ -103,8 +107,7 @@ Python 3.8 ~ 3.10 is required, with the following packages installed:
 <ul>
   <li>CUDA (to run Tensorflow on GPU)</li>
 </ul>
-
-
+<br/>
 
 ## Usage
 
@@ -124,12 +127,14 @@ The script ***deep_dream.sh*** in the main directory is also available as an exa
 - ***-os***: Number of iterations to run for each octave. The default value is *80*.
 - ***-m***: String parameter representing the base model to use for the deep dream. Possible values for this parameters is represented by the models currently implemented. For now this parameter can be set to either *'inceptionV3'* or *'inceptionResNet'* .
 - ***-ml***: Range of the model layers to use for the deep dream. If left blank or wrongly chosen, the application will ask you to complete this parameter during runtime, after informing the user of the available range of layers. For *'inceptionResNet'* model the available range is from 0 to 43, while for the *'inceptionV3'* it is from 0 to 15 .
-
+<br/>
 
 ## Future Work
-No future work pending yet.
+
 - ~~Add more args for more detailed control<br/>~~
 - ~~Create bash script to run experiemnts.~~
+- Anneal value of tile size and other params between steps.
+<br/>
 
 ## References and acknowledgements:
 
