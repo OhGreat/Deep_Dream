@@ -1,11 +1,8 @@
 
 # Deep dream implementation using Tensorflow
-<div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/sunset.jpeg" width="260px" > 
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" width="260">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/snow.jpeg" width="260">
-</div>
-<br/>
+
+ <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/deep_dream.gif" width="100%" > 
+
 
 **Table of Contents**
 <ol align="left">
@@ -38,11 +35,11 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 
  
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/lighthouse_reshaped.jpeg" height="400">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/lighthouse.jpeg" height="400">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/input/lighthouse_reshaped.jpeg" height="400">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/lighthouse.jpeg" height="400">
   <br/>
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/selfie_reshaped.jpeg" height="400">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/selfie.jpeg" height="400">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/input/selfie_reshaped.jpeg" height="400">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/selfie.jpeg" height="400">
 </div>
 <br/><br/>
 <ul>
@@ -51,11 +48,11 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 </ul>
 
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/field_reshaped.jpeg" width="380">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/field.jpeg" width="380">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/input/granada_reshaped.jpeg" width="380">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/granada.jpeg" width="380">
   
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/leiden_night_reshaped.jpeg" width="380">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/leiden_night.jpeg" width="380">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/input/snow_reshaped.jpeg" width="380">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/snow.jpeg" width="380">
   <br/>
 </div>
 <br/><br/>
@@ -68,15 +65,15 @@ Collection of images created with Deep Dream. It is recommended to open the crea
   Example input noise:
 </div>
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/input/input_reshaped/random_noise.jpeg" width="200"> 
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/input/random_noise.jpeg" width="200"> 
 </div>
 <br/><br/>
 <div align="center">
   Example outputs:
 </div>
 <div align="center">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise.jpeg" width="350">
-  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/output/random_noise_2.jpeg" width="350">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/random_noise_1.jpeg" width="350">
+  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/output/random_noise_2.jpeg" width="350">
 </div>
 <br/>
 
