@@ -3,16 +3,13 @@
 
  <img src="https://github.com/OhGreat/Deep_Dream/blob/main/readme_files/deep_dream.gif" width="100%" > 
 
-
 **Table of Contents**
 <ol align="left">
-  <li>
-    <a href="#about">About</a>
-    <ul>
-      <li><a href="#examples">Examples & Observations</a></li>
-      <li><a href="#deep_dream_as_art">Is Deep Dream considered art?</a></li>
-    </ul>
-  </li>
+  <li><a href="#about">About</a></li>
+  <ul>
+   <li><a href="#examples">Examples & Observations</a></li>
+   <li><a href="#deep_dream_as_art">Is Deep Dream considered art?</a></li>
+  </ul>
   <li><a href="#prerequisites">Prerequisites</a></li>
   <li><a href="#usage">Usage</a></li>
   <li><a href="#future-work">Future work</a></li>
@@ -21,12 +18,11 @@
 <br/>
 
 ## About
-Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.<br/>
-This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Subtle details of the implementation have been changed and it is currently under work. In addition, a wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
+Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Subtle details of the implementation have been changed and it is currently under work. In addition, a wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
 
 
-<h3 id="examples"> Examples & Observations</h3>
-Collection of images created with Deep Dream. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
+<h2 id="examples"> Examples & Considerations</h3>
+In this section you will find a collection of images created with Deep Dream, together with a few observations. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
 <br/><br/>
 
 **The examples below are generated from a starting input image:**
@@ -82,7 +78,7 @@ Collection of images created with Deep Dream. It is recommended to open the crea
 *“Google Dream (...) is a tool, not the product, so calling it art would be a little like an artist raising their hand and declaring their paintbrush art because they were so happy with the way they used it lay paint on a canvas.” <p align="right">- Paddy Johnson</p>* 
 
 
-Although Deep Dream cannot exactly be considered art, its applications are intriguing and representative of our brain as explained by Memo Akten in the citation below.
+Although Deep Dream cannot exactly be considered art, its applications are intriguing and representative of our brain as explained by Memo Akten from the citation below.
 <br/>
 
 *"It might look like Deep Dream is generating say, sparrow’s faces in clouds, but what it is actually doing is generating patterned noise, which our brains try to find meaning in. It creates just enough of a sparrow’s head in a cloud, so that our brains find the rest. Visually, our minds and Deep Dream are doing exactly the same thing. It’s such a perfect mirror. I love that conceptual aspect." <p align="right">- Memo Akten</p>*
@@ -125,6 +121,7 @@ The script `deep_dream.sh` in the main directory is also available as an example
 - `-m`: String parameter representing the base model to use for the deep dream. Possible values for this parameters is represented by the models currently implemented. For now this parameter can be set to either *'inceptionV3'* or *'inceptionResNet'* .
 - `-ml`: Range of the model layers to use for the deep dream. If left blank or wrongly chosen, the application will ask you to complete this parameter during runtime, after informing the user of the available range of layers. For *'inceptionResNet'* model the available range is from 0 to 43, while for the *'inceptionV3'* it is from 0 to 15 .
 <br/>
+
 
 ## Future Work
 
