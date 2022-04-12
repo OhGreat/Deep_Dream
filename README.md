@@ -108,22 +108,22 @@ Python 3.8 ~ 3.10 is required, with the following packages installed:
 
 ## Usage
 
-The main file to run experiments is the ***deep_dream.py*** file in the main directiry. An accurate description of all the arguments is available below.
+The main file to run experiments is the `deep_dream.py` file in the main directiry. An accurate description of all the arguments is available below.
 
-The script ***deep_dream.sh*** in the main directory is also available as an example to set parameters and run experiments.
+The script `deep_dream.sh` in the main directory is also available as an example to set parameters and run experiments.
 
 ### Tunable parameters:
-- ***-img***: Path of the input image to use for the experiment. It can be set to *'random_noise'* (set as default) in order to create a random normal distributed noise to pass to the deep dream model.
-- ***-img_out***: Name for the output image. Default is *'output'*.
-- ***-img_max_dim***: Resize input image to a maximum dimension, which will be used to create the output image. Aspect ration will be kept. Default value is *1024*.
-- ***-save_input***: When used, the flag will save the input image resized to the maximum dimension defined with the previous flag *-img_max_dim*.
-- ***-ts***: Size of the tile for the image roll. Should be a number between 0 and *img_max_dim*. Default is *512*.
-- ***-ss***: Step size to update our image at every iteration. Some good values for this parameter are between 0.001 and 0.1 . Default value is *0.01* .
-- ***-osc***: Octave scale. Scale parameter that determines the size of the image at every octave. Its default value is *1.2* .
-- ***-or***: Octaves range. This parameter takes as input two values, representing the starting and ending indexes of the octave range. Each value of the octave is multiplied by *osc* to get the size of the image for the current octave. Choosing negative values will make the image smaller than the original, resulting in filters that have more impact to the global structure and shapes. Higher octave values on the other hand, will make the image bigger than the original, preserving the overall structure and shapes of the image while making the amplifications appear more like adding details. The default values are *[-4, 2]* creating the octave range [-4, -3, -2, -1, 0, 1] .
-- ***-os***: Number of iterations to run for each octave. The default value is *80*.
-- ***-m***: String parameter representing the base model to use for the deep dream. Possible values for this parameters is represented by the models currently implemented. For now this parameter can be set to either *'inceptionV3'* or *'inceptionResNet'* .
-- ***-ml***: Range of the model layers to use for the deep dream. If left blank or wrongly chosen, the application will ask you to complete this parameter during runtime, after informing the user of the available range of layers. For *'inceptionResNet'* model the available range is from 0 to 43, while for the *'inceptionV3'* it is from 0 to 15 .
+- `-img`: Path of the input image to use for the experiment. It can be set to *'random_noise'* (set as default) in order to create a random normal distributed noise to pass to the deep dream model.
+- `-img_out`: Name for the output image. Default is *'output'*.
+- `-img_max_dim`: Resize input image to a maximum dimension, which will be used to create the output image. Aspect ration will be kept. Default value is *1024*.
+- `-save_input`: When used, the flag will save the input image resized to the maximum dimension defined with the previous flag *-img_max_dim*.
+- `-ts`: Size of the tile for the image roll. Should be a number between 0 and *img_max_dim*. Default is *512*.
+- `-ss`: Step size to update our image at every iteration. Some good values for this parameter are between 0.001 and 0.1 . Default value is *0.01* .
+- `-osc`: Octave scale. Scale parameter that determines the size of the image at every octave. Its default value is *1.2* .
+- `-or`: Octaves range. This parameter takes as input two values, representing the starting and ending indexes of the octave range. Each value of the octave is multiplied by *osc* to get the size of the image for the current octave. Choosing negative values will make the image smaller than the original, resulting in filters that have more impact to the global structure and shapes. Higher octave values on the other hand, will make the image bigger than the original, preserving the overall structure and shapes of the image while making the amplifications appear more like adding details. The default values are *[-4, 2]* creating the octave range [-4, -3, -2, -1, 0, 1] .
+- `-os`: Number of iterations to run for each octave. The default value is *80*.
+- `-m`: String parameter representing the base model to use for the deep dream. Possible values for this parameters is represented by the models currently implemented. For now this parameter can be set to either *'inceptionV3'* or *'inceptionResNet'* .
+- `-ml`: Range of the model layers to use for the deep dream. If left blank or wrongly chosen, the application will ask you to complete this parameter during runtime, after informing the user of the available range of layers. For *'inceptionResNet'* model the available range is from 0 to 43, while for the *'inceptionV3'* it is from 0 to 15 .
 <br/>
 
 ## Future Work
