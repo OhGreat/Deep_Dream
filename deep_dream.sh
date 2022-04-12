@@ -1,13 +1,13 @@
 #!/bin/bash
 
 python deep_dream.py \
--img input/snow.jpg \
--img_out snow \
--img_max_dim 1024 \
--ts 600 \
+-img input/park.jpg \
+-img_out park_6 \
+-img_max_dim 1500 \
+-ts 512 \
 -ss 0.01 \
--or -4 3 \
--os 50 \
--osc 1.25 \
+-or -40 2 \
+-os 5 \
+-osc 1.02 \
 -m inceptionResNet \
--ml 10 30
+-ml 0 30
