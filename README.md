@@ -18,11 +18,11 @@
 <br/>
 
 ## About
-Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Subtle details of the implementation have been changed and it is currently under work. In addition, a wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations.<br/>
+Deep Dream is a computer vision tool, created by Google's engineer Alexander Mordvintsev, to help us understand how neural networks work. It uses the convolutional layers of Neural Networks to find and enhance patterns in images, thus intentionally creating dream-like, psychedelic, over-processed images.This work is mainly based on the tiled implementation of the Deep Dream Tensorflow tutorial found <a href="https://www.tensorflow.org/tutorials/generative/deepdream">here</a>. Subtle details of the implementation have been changed and it is currently under work. In addition, a wrapper has been constructed to choose from various models and run experiments on the algorithm with different configurations from script.<br/>
 
 
 <h2 id="examples"> Examples & Considerations</h3>
-In this section you will find a collection of images created with Deep Dream, together with a few observations. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
+In this section you will find a collection of images created with this Deep Dream framework, together with a few observations. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
 <br/><br/>
 
 **The examples below are generated from a starting input image:**
