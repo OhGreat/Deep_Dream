@@ -130,7 +130,7 @@ The script `deep_dream.sh` in the main directory is also available as an example
 - Anneal value of tile size and other params between steps.
 <br/>
 
-## References and acknowledgements:
+## References and acknowledgements: (Work in progress)
 
 - https://www.tensorflow.org/tutorials/generative/deepdream
 
