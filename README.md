@@ -132,6 +132,8 @@ The script `deep_dream.sh` in the main directory is also available as an example
 
 ## References and acknowledgements: (Work in progress)
 
+The following links were used as reference to build the framework:
+
 - https://www.tensorflow.org/tutorials/generative/deepdream
 
 - https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html
