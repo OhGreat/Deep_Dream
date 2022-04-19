@@ -25,7 +25,7 @@ Deep Dream is a computer vision tool, created by Google's engineer Alexander Mor
 In this section you will find a collection of images created with this Deep Dream framework, together with a few observations. It is recommended to open the created images in a new tab, to see all the details and patterns created by the algorithm.
 <br/><br/>
 
-**The examples below are generated from a starting input image:**
+**The examples below have been generated from a starting input image:**
 
 - These examples were created with lower network layers and smaller octave range in order to create more subtle *dreamifications*, preserving the shapes and structures of the original image.
 
@@ -53,7 +53,7 @@ In this section you will find a collection of images created with this Deep Drea
 </div>
 <br/><br/>
 
-**The examples below are generated from random noise, allowing the network get <i>'creative'</i> with its representations:**
+**The examples below have been generated from random noise, allowing the network get <i>'creative'</i> with its representations:**
 - We can observe how the noise gets interpreted as leafs and branches of trees, with some shapes recalling animals and birds.
 
 <br/>
