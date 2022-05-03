@@ -88,19 +88,16 @@ Although Deep Dream cannot exactly be considered art, its applications are intri
 
 ### Required
 
-Python 3.8 ~ 3.10 is required, with the following packages installed:
-<ul>
-  <li>numpy</li>
-  <li>PIL</li>
-  <li>Matplotlib</li>
-  <li>Tensorflow >= 2.8.0</li>
-</ul>
+`Python3` version 3.8 ~ 3.10 is required, with the following packages installed:
+- `numpy`
+- `Pillow`
+- `Matplotlib`
+- `Tensorflow` >= 2.8.0
+
 
 ### Recommended
-<ul>
-  <li>CUDA (to run Tensorflow on GPU)</li>
-</ul>
-<br/>
+- `CUDA` (to run Tensorflow on GPU)
+
 
 ## Usage
 
@@ -130,7 +127,7 @@ The script `deep_dream.sh` in the main directory is also available as an example
 - Anneal value of tile size and other params between steps.
 <br/>
 
-## References and acknowledgements: (Work in progress)
+## References and acknowledgements:
 
 The following links were used as reference to build the framework:
 
